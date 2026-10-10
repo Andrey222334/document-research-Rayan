@@ -24,6 +24,10 @@ API написан на FastAPI, данные хранятся в SQLite, пои
 
 ## Запуск в Docker
 
+Для Windows есть [EXE в Releases](https://github.com/Andrey222334/document-research-Rayan/releases).
+Порядок запуска и сборки описан в [инструкции для Windows](docs/windows.md).
+EXE включает Python и зависимости сервиса; Elasticsearch нужен отдельно.
+
 Нужны Docker Engine и Docker Compose; на Windows — запущенный Docker Desktop
 с Linux-контейнерами. Выделите Docker минимум 2 ГБ памяти.
 
@@ -46,6 +50,12 @@ API написан на FastAPI, данные хранятся в SQLite, пои
 
 Данные сохраняются в Docker volumes. Остановка: `docker compose down`.
 Команда `docker compose down -v` **удаляет все данные**.
+
+В Docker Desktop эти хранилища видны на вкладке **Volumes**. На снимке ниже
+`zadach_database-data` относится к SQLite, а `zadach_elasticsearch-data` —
+к поисковому индексу. Префикс зависит от имени папки, из которой запущен Compose.
+
+![Хранилища проекта в Docker Desktop](docs/images/docker-volumes.png)
 
 Elasticsearch без авторизации и порты доступны только на localhost: это
 конфигурация для локального тестового задания.
